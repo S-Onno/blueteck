@@ -1,0 +1,281 @@
+/*--------------------------------------------------
+  css/style.css
+--------------------------------------------------*/
+
+/*── 1. カラーテーマ ──*/
+:root {
+  --clr-primary: #4a90e2;
+  --clr-primary-dark: #357abd;
+  --clr-secondary: #f5f7fa;
+  --clr-bg: #f0f4f8;
+  --clr-text: #393939;
+  --clr-card-bg: rgba(255, 255, 255, 0.6);
+  --clr-accent: #ff5e5e;
+
+  --fs-base: 16px;
+  --fw-normal: 400;
+  --fw-bold: 700;
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+
+/*── 2. リセット＆ベース設定 ──*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: var(--fs-base);
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+}
+
+/*── 3. ヘッダー／ナビ ──*/
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: saturate(180%) blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.site-header h1 {
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
+  color: var(--clr-primary-dark);
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  color: var(--clr-text);
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+  position: relative;
+  padding: 0.25rem;
+  transition: color var(--transition);
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--clr-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--clr-primary);
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+  transform: scaleX(1);
+}
+
+/*── 4. ヒーローセクション ──*/
+.hero {
+  margin-top: 80px; /* ヘッダー分の余白 */
+  height: 60vh;
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  font-weight: var(--fw-bold);
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  max-width: 600px;
+}
+
+/*── 5. メインコンテンツ：グリッドレイアウト ──*/
+.site-main {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/*── 6. カードコンポーネント（ガラスモーフィズム） ──*/
+.card {
+  background: var(--clr-card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+  color: var(--clr-primary-dark);
+  font-size: 1.5rem;
+}
+
+.card p,
+.card ul {
+  flex: 1;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+}
+
+/*── 7. ボタンコンポーネント ──*/
+.button {
+  display: inline-block;
+  text-align: center;
+  background: var(--clr-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: var(--radius);
+  font-weight: var(--fw-bold);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.button:hover {
+  background: var(--clr-primary-dark);
+  transform: translateY(-3px);
+}
+
+/*── 8. フォームスタイル ──*/
+form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: var(--fw-bold);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 8px rgba(74,144,226,0.3);
+  outline: none;
+}
+
+form button[type="submit"] {
+  background: var(--clr-accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  display: inline-block;  
+}
+
+form button[type="submit"]:hover {
+  background: darken(var(--clr-accent), 10%);
+  transform: translateY(-2px);
+}
+
+/*── 9. フッター ──*/
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--clr-primary-dark);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/*── 10. レスポンシブ微調整 ──*/
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.site-main {
+  display: grid;
+- grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
++ grid-template-columns: 1fr;        /* ←ここを1frに */
+  gap: 2rem;
+  margin: 6rem auto 3rem;
+  padding: 0 1rem;
+}
+@media (max-width: 600px) {
+  .site-header h1 {
+    font-size: 1.25rem;
+  }
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .hero h2 {
+    font-size: 1.75rem;
+  }
+}   
+/* もし header.php に .vertical-stack を付けた場合 */
+.site-main.vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 6rem auto 3rem;
+  padding: 0 1rem;
+}
+
+/* 汎用的に site-main を縦並びにしたいなら */
+.site-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 6rem auto 3rem;
+  padding: 0 1rem;
+}
