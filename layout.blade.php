@@ -12,6 +12,8 @@
   
   <footer>
     <p>※この会社はフィクションです※</p>
+    <p>© 2023 株式会社ブルーテック</p>
+    <p>All rights reserved.</p>
   </footer>
 </body>
 </html>
