@@ -1,0 +1,165 @@
+body {
+  background-image: url('../images/sky.png');
+  background-size: cover;
+  background-position: center center;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* 横並びのナビゲーションをレスポンシブ対応 */
+.koumoku {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 15px;
+  background: rgba(255,255,255,0.5);
+}
+
+.koumoku a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0066cc;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.koumoku a:hover {
+  color: #003366;
+  transform: scale(1.1);
+}
+
+/* 中央コンテンツのスタイル */
+.center {
+  text-align: center;
+  background: rgba(255,255,255,0.8);
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 10px;
+  color: #444;
+  font-size: 14px;
+}
+
+#rinen {
+  font-size: 22px;
+  font-weight: 600;
+  color: #003366;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  margin-top: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+td {
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+  background-color: #f1f7ff;
+}
+
+h2 {
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+.middle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+#hukuri {
+  background: rgba(255,255,255,0.8);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+#bosyu {
+  background: rgba(255,255,255,0.8);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  max-height: fit-content;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+#bosyu h3, #hukuri h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #003366;
+}
+
+/* 全体のフォーム配置 */
+form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ラベルのスタイル */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 入力フィールドのスタイル */
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* 送信ボタン */
+button[type="submit"] {
+  background-color: #4c5baf;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
